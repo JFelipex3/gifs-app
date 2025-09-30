@@ -1,17 +1,28 @@
+// Importación del tipo Gif desde el archivo de datos de prueba
 import type { Gif } from "../../mock-data/gifs.mock";
 
+// Definición de las propiedades que acepta el componente
 interface Props {
-    gifs: Gif[];
+    gifs: Gif[]; // Array de objetos Gif para mostrar en la lista
 }
 
+/**
+ * Componente GifList - Lista de GIFs
+ * Renderiza una colección de GIFs en formato de cuadrícula
+ * @param gifs - Array de objetos Gif que contienen la información de cada GIF
+ */
 export const GifList = ({ gifs }: Props) => {
   return (
     <div className="gifs-container">
         {
+            // Mapeo del array de GIFs para crear una tarjeta por cada elemento
             gifs.map( (gif) => (
                 <div key={gif.id} className="gif-card">
+                    {/* Imagen del GIF */}
                     <img src={gif.url} alt={gif.title} />
+                    {/* Título del GIF */}
                     <h3>{gif.title}</h3>
+                    {/* Información adicional: dimensiones y tamaño */}
                     <p>
                         {gif.width} x {gif.height} (1.5mb)
                     </p>

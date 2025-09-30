@@ -1,11 +1,20 @@
+/**
+ * Interfaz que define la estructura de un objeto Gif
+ * Contiene toda la información necesaria para mostrar un GIF en la aplicación
+ */
 export interface Gif {
-  id: string;
-  title: string;
-  url: string;
-  width: number;
-  height: number;
+  id: string;     // Identificador único del GIF
+  title: string;  // Título descriptivo del GIF
+  url: string;    // URL de la imagen/GIF
+  width: number;  // Ancho en píxeles
+  height: number; // Alto en píxeles
 }
 
+/**
+ * Datos de prueba - Array de GIFs simulados
+ * Se utiliza mientras no se implemente la integración con una API real de GIFs
+ * Contiene una variedad de GIFs de diferentes temas y dimensiones
+ */
 export const mockGifs: Gif[] = [
   {
     id: '1',

@@ -1,159 +1,184 @@
+/* ===== ESTILOS GLOBALES ===== */
+/* Configuración básica para el documento */
 html,
 body {
-  background-color: #242424;
-  color: #fff;
-  font-family: 'Montserrat Alternates', sans-serif;
+  background-color: #242424; /* Fondo oscuro para toda la aplicación */
+  color: #fff;               /* Texto blanco por defecto */
+  font-family: 'Montserrat Alternates', sans-serif; /* Fuente principal */
 }
 
+/* Estilo para títulos principales */
 h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0;
+  font-size: 2rem;    /* Tamaño de fuente grande */
+  font-weight: 700;   /* Texto en negrita */
+  margin: 0;          /* Sin margen para un mejor control del espaciado */
   font-style: normal;
-  text-align: center;
+  text-align: center; /* Centrado horizontalmente */
 }
 
+/* ===== CLASES DE UTILIDAD ===== */
+/* Contenedor para centrar contenido */
 .content-center {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; /* Elementos apilados verticalmente */
+  align-items: center;    /* Centrado horizontal */
 }
 
+/* ===== VARIANTES DE FUENTE MONTSERRAT ===== */
+/* Fuente ligera */
 .montserrat-light {
   font-family: 'Montserrat Alternates', sans-serif;
   font-weight: 300;
   font-style: normal;
 }
 
+/* Fuente regular */
 .montserrat-regular {
   font-family: 'Montserrat Alternates', sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
+/* Fuente en negrita */
 .montserrat-bold {
   font-family: 'Montserrat Alternates', sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
+/* ===== ESTILOS PARA LA BARRA DE BÚSQUEDA ===== */
+/* Contenedor principal de la barra de búsqueda */
 .search-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  flex-direction: row;     /* Elementos en fila horizontal */
+  align-items: center;     /* Centrado vertical */
+  justify-content: center; /* Centrado horizontal */
+  gap: 10px;              /* Espacio entre input y botón */
 }
 
+/* Estilo del campo de entrada de texto */
 .search-container input {
   width: 100%;
-  max-width: 300px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  color: #333;
+  max-width: 300px;       /* Ancho máximo para mantener diseño responsive */
+  padding: 10px;             /* Espaciado interno */
+  border: 1px solid #ccc;    /* Borde gris claro */
+  border-radius: 5px;        /* Esquinas redondeadas */
+  font-size: 16px;           /* Tamaño de fuente legible */
+  color: #333;               /* Texto oscuro dentro del input */
 }
 
+/* Estilo del botón de búsqueda */
 .search-container button {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  color: #333;
-  background-color: #000;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 10px;             /* Espaciado interno */
+  border: 1px solid #ccc;    /* Borde consistente con el input */
+  border-radius: 5px;        /* Esquinas redondeadas */
+  font-size: 16px;           /* Tamaño de fuente consistente */
+  color: #333;               /* Color de texto por defecto */
+  background-color: #000;    /* Fondo negro */
+  color: #fff;               /* Texto blanco (sobrescribe el anterior) */
+  cursor: pointer;           /* Cursor de puntero al hacer hover */
+  transition: background-color 0.3s ease; /* Transición suave para efectos hover */
 }
 
+/* Efecto hover para el botón de búsqueda */
 .search-container button:hover {
-  background-color: #333;
-  transition: background-color 0.3s ease;
+  background-color: #333;    /* Fondo gris al hacer hover */
+  transition: background-color 0.3s ease; /* Transición suave */
 }
 
-/* Trending searches */
+/* ===== ESTILOS PARA BÚSQUEDAS ANTERIORES ===== */
+/* Contenedor principal de las búsquedas anteriores */
 .previous-searches {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  flex-direction: column;     /* Elementos apilados verticalmente */
+  align-items: center;        /* Centrado horizontal */
+  justify-content: center;    /* Centrado vertical */
+  gap: 10px;                 /* Espacio entre elementos */
 }
 
+/* Lista de términos de búsqueda anteriores */
 .previous-searches-list {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  flex-wrap: wrap;
-  max-width: 400px;
+  flex-direction: row;        /* Elementos en fila horizontal */
+  align-items: center;        /* Centrado vertical */
+  justify-content: center;    /* Centrado horizontal */
+  gap: 10px;                 /* Espacio entre elementos */
+  list-style: none;          /* Sin viñetas de lista */
+  padding: 0;                /* Sin padding por defecto */
+  margin: 0;                 /* Sin margen por defecto */
+  flex-wrap: wrap;           /* Permite que los elementos se envuelvan en nuevas líneas */
+  max-width: 400px;          /* Ancho máximo del contenedor */
 }
 
+/* Estilo individual para cada término de búsqueda anterior */
 .previous-searches-list li {
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 400;
+  padding: 5px 10px;         /* Espaciado interno menor que los botones principales */
+  border: 1px solid #ccc;    /* Borde consistente */
+  border-radius: 5px;        /* Esquinas redondeadas */
+  cursor: pointer;           /* Cursor de puntero para indicar que es clickeable */
+  font-size: 14px;           /* Fuente ligeramente más pequeña */
+  font-weight: 400;          /* Peso de fuente normal */
   font-style: normal;
-  color: #fff;
-  background-color: #000;
-  margin-bottom: 20px;
+  color: #fff;               /* Texto blanco */
+  background-color: #000;    /* Fondo negro */
+  margin-bottom: 20px;       /* Margen inferior para separación */
 }
 
+/* Efecto hover para los términos de búsqueda anteriores */
 .previous-searches-list li:hover {
-  background-color: #333;
-  transition: background-color 0.3s ease;
+  background-color: #333;    /* Fondo gris al hacer hover */
+  transition: background-color 0.3s ease; /* Transición suave */
 }
 
-/* Gifs */
+/* ===== ESTILOS PARA LA CUADRÍCULA DE GIFS ===== */
+/* Contenedor principal de la cuadrícula de GIFs */
 .gifs-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  display: grid;                          /* Diseño de cuadrícula */
+  grid-template-columns: repeat(2, 1fr);  /* 2 columnas iguales por defecto */
+  gap: 10px;                             /* Espacio entre elementos */
+  width: 100%;                           /* Ancho completo */
+  max-width: 1200px;                     /* Ancho máximo para evitar demasiada expansión */
+  margin: 0 auto;                        /* Centrado horizontal */
 }
 
+/* Tarjeta individual para cada GIF */
 .gif-card {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 50px;
+  flex-direction: column;  /* Elementos apilados verticalmente */
+  align-items: center;     /* Centrado horizontal */
+  justify-content: center; /* Centrado vertical */
+  margin-bottom: 50px;     /* Margen inferior para separación */
 }
 
+/* Estilo para las imágenes de GIFs */
 .gifs-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
+  width: 100%;            /* Ancho completo del contenedor */
+  height: 100%;           /* Alto completo del contenedor */
+  object-fit: cover;      /* Mantiene proporciones y cubre el área completamente */
+  border-radius: 10px;    /* Esquinas redondeadas para mejor apariencia */
 }
 
+/* ===== DISEÑO RESPONSIVE ===== */
+/* Tablet y pantallas medianas (768px en adelante) */
 @media (min-width: 768px) {
   .gifs-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablets */
+    gap: 20px;                             /* Mayor espacio entre elementos */
   }
 }
 
+/* Desktop pequeño (1024px en adelante) */
 @media (min-width: 1024px) {
   .gifs-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en desktop pequeño */
+    gap: 30px;                             /* Aún mayor espacio */
   }
 }
 
+/* Desktop grande (1280px en adelante) */
 @media (min-width: 1280px) {
   .gifs-container {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas en pantallas grandes */
+    gap: 40px;                             /* Máximo espacio entre elementos */
   }
 }
