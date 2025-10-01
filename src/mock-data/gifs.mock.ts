@@ -1,14 +1,4 @@
-/**
- * Interfaz que define la estructura de un objeto Gif
- * Contiene toda la información necesaria para mostrar un GIF en la aplicación
- */
-export interface Gif {
-  id: string;     // Identificador único del GIF
-  title: string;  // Título descriptivo del GIF
-  url: string;    // URL de la imagen/GIF
-  width: number;  // Ancho en píxeles
-  height: number; // Alto en píxeles
-}
+import type { Gif } from "../gifs/interfaces/gif.interface";
 
 /**
  * Datos de prueba - Array de GIFs simulados
