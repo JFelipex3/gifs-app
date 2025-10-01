@@ -1,5 +1,5 @@
 // Importación del hook useState de React
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Definición de las propiedades que acepta el componente
 interface Props {
@@ -17,6 +17,16 @@ export const SearchBar = ({ placeholder = 'Buscar', onQuery }: Props) => {
 
   // Estado local que almacena el valor actual del input de búsqueda
   const [query, setQuery] = useState('');
+
+  useEffect( () => {    
+    const timeoutId = setTimeout( () => {
+      onQuery(query);
+    }, 700);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [query, onQuery]);
 
   /**
    * Función que maneja la acción de búsqueda

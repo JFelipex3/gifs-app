@@ -29,9 +29,15 @@ export const GifsApp = () => {
    * Maneja la búsqueda de un nuevo término
    * @param query - El término de búsqueda ingresado por el usuario
    */
-  const handleSearch = ( query: string ) => {
-    console.log({ query });
-    // TODO: Implementar lógica para buscar GIFs y actualizar previousTerms
+  const handleSearch = ( query: string = '' ) => {
+    
+    query = query.trim().toLowerCase();
+
+    if (query.length === 0) return;
+    if (previousTerms.includes(query)) return;
+
+    setPreviousTerms([query, ...previousTerms].slice(0, 7));
+    
   };
     
   return (
