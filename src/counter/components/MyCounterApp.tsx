@@ -1,20 +1,8 @@
-import { useState } from 'react';
+import { useCounter } from '../hooks/useCounter';
 
 export const MyCounterApp = () => {
-    // Se debe llevar lógica al Custom Hook para reutilizar
-    const [counter, setcounter] = useState(5);
 
-    const handleAdd = () => {
-        setcounter(prevState => prevState + 1);
-    }
-
-    const handleSubstract = () => {
-        setcounter(prevState => prevState - 1);
-    }
-
-    const handleReset = () => {
-        setcounter(5);
-    }
+    const { counter, handleAdd, handleReset, handleSubstract} = useCounter();
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
