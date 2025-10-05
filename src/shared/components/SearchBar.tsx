@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 
 // Definición de las propiedades que acepta el componente
 interface Props {
-    placeholder?: string; // Texto de placeholder opcional para el input
-    onQuery: ( query: string ) => void; // Función callback que se ejecuta al realizar una búsqueda
+  placeholder?: string; // Texto de placeholder opcional para el input
+  onQuery: (query: string) => void; // Función callback que se ejecuta al realizar una búsqueda
 }
 
 /**
@@ -18,8 +18,8 @@ export const SearchBar = ({ placeholder = 'Buscar', onQuery }: Props) => {
   // Estado local que almacena el valor actual del input de búsqueda
   const [query, setQuery] = useState('');
 
-  useEffect( () => {    
-    const timeoutId = setTimeout( () => {
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
       onQuery(query);
     }, 700);
 
@@ -33,11 +33,7 @@ export const SearchBar = ({ placeholder = 'Buscar', onQuery }: Props) => {
    * Ejecuta el callback onQuery con el término actual y limpia el input
    */
   const handleSearch = () => {
-    // Solo ejecutar la búsqueda si hay texto ingresado
-    if (query.trim()) {
-      onQuery( query.trim() );
-      setQuery(''); // Limpiar el input después de la búsqueda
-    }
+    onQuery(query);
   };
 
   /**
@@ -53,16 +49,16 @@ export const SearchBar = ({ placeholder = 'Buscar', onQuery }: Props) => {
 
   return (
     <div className="search-container">
-        {/* Input de texto para ingresar el término de búsqueda */}
-        <input 
-          type="text" 
-          placeholder={placeholder} 
-          value={ query } 
-          onChange={ (event) => setQuery(event.target.value)}
-          onKeyDown={ handleKeyDown }
-        />
-        {/* Botón para ejecutar la búsqueda */}
-        <button onClick={handleSearch}>Buscar</button>
+      {/* Input de texto para ingresar el término de búsqueda */}
+      <input
+        type="text"
+        placeholder={placeholder}
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+        onKeyDown={handleKeyDown}
+      />
+      {/* Botón para ejecutar la búsqueda */}
+      <button onClick={handleSearch}>Buscar</button>
     </div>
   )
 }
