@@ -19,7 +19,9 @@ export const useGifs = () => {
         }
 
         const newGifs = await getGifsByQuery(term);
+        gifsCache.current[term] = newGifs;
         setGifs(newGifs);
+
     };
 
     const handleSearch = async (query: string = '') => {
@@ -27,14 +29,19 @@ export const useGifs = () => {
         query = query.trim().toLowerCase();
 
         if (query.length === 0) return;
-        if (previousTerms.includes(query)) return;
 
-        setPreviousTerms([query, ...previousTerms].slice(0, 7));
+        let alreadyExists = false;
+        setPreviousTerms(prev => {
+            if (prev.includes(query)) {
+                alreadyExists = true;
+                return prev;
+            }
+            return [query, ...prev].slice(0, 8)
+        });
 
         const newGifs = await getGifsByQuery(query);
-        setGifs(newGifs);
-
         gifsCache.current[query] = newGifs;
+        setGifs(newGifs);
 
     };
 
