@@ -79,4 +79,33 @@ describe('useGifs', () => {
         ]);
 
     });
+
+    test('should return not terms duplicate in previousTerms', async () => {
+
+        const { result } = renderHook(() => useGifs());
+
+        vi.spyOn(gifActions, 'getGifsByQuery').mockResolvedValue([]);
+
+        await act(async () => {
+            await result.current.handleSearch('goku');
+            await result.current.handleSearch('goku');
+        });
+
+        expect(result.current.previousTerms.length).toBe(1);
+        expect(result.current.previousTerms).toStrictEqual(['goku']);
+    });
+
+    test('should not return gifs when query length is 0', async () => {
+
+        const { result } = renderHook(() => useGifs());
+        vi.spyOn(gifActions, 'getGifsByQuery').mockResolvedValue([]);
+
+        await act(async () => {
+            await result.current.handleSearch('test');
+            await result.current.handleSearch('');
+        });
+
+        expect(result.current.gifs.length).toBe(0);
+
+    });
 });
