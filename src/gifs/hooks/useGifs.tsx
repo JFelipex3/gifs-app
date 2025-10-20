@@ -30,10 +30,8 @@ export const useGifs = () => {
 
         if (query.length === 0) return;
 
-        let alreadyExists = false;
         setPreviousTerms(prev => {
             if (prev.includes(query)) {
-                alreadyExists = true;
                 return prev;
             }
             return [query, ...prev].slice(0, 8)
